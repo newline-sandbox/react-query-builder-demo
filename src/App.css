@@ -1,38 +1,24 @@
-.App {
-  text-align: center;
+.ruleGroup {
+  --tw-bg-opacity: 0.2;
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: rgba(183, 204, 226, var(--tw-bg-opacity));
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid rgba(183, 204, 226, 0.25);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ruleGroup .rule,
+.ruleGroup .ruleGroup {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ruleGroup .ruleGroup-combinators.betweenRules {
+  margin-top: 0.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ruleGroup .ruleGroup-notToggle {
+  margin-right: 0.5rem;
 }

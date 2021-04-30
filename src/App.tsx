@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { SHOWN_RECORDS_LIMIT } from "./enums";
+import { Record } from "./types";
+import Map from "./components/Map";
+import SqlQueryBuilder from "./components/SqlQueryBuilder";
+import Table from "./components/Table";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [records, setRecords] = useState<Record[]>([]);
+
+  const [shownRecordsCount, setShownRecordsCount] = useState<number>(
+    SHOWN_RECORDS_LIMIT
   );
-}
+
+  const onSendQuery = (data) => {
+    setShownRecordsCount(SHOWN_RECORDS_LIMIT);
+    setRecords(data);
+  };
+
+  const onLoadMoreRecords = () => {
+    setShownRecordsCount((current) => current + SHOWN_RECORDS_LIMIT);
+  };
+
+  return (
+    <>
+      <SqlQueryBuilder className="p-4" onSendQuery={onSendQuery} />
+      <Table
+        className="p-4"
+        records={records}
+        shownRecordsCount={shownRecordsCount}
+        onLoadMoreRecords={onLoadMoreRecords}
+      />
+      <Map className="p-4" records={records} />
+    </>
+  );
+};
 
 export default App;

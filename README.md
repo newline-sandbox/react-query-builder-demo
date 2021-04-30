@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# React Query Builder Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](https://www.dl.dropboxusercontent.com/s/ddgorafpivw7h9x/Screen%20Shot%202021-04-29%20at%2011.26.55%20PM.png)
 
-## Available Scripts
+This [React Query Builder](https://www.npmjs.com/package/react-querybuilder) demo was scaffolded via the [TypeScript template of Create React App](https://create-react-app.dev/docs/adding-typescript/). A **query builder** provides a customizable interface for creating queries to send to a server to fetch data from a database. Each **rule** corresponds to a condition specified within an SQL `WHERE` clause, and each **group** corresponds to the parentheses used within an SQL `WHERE` clause that determine the evaluation order of conditions. Adding a query builder to an admin or analytics dashboard allows users to flexibly access data from a database and immediately answer questions without having to explicitly write and execute SQL statements in a terminal or third-party administrative tool like [pgAdmin](https://www.pgadmin.org/).
 
-In the project directory, you can run:
+In this demo, after the server processes the query and sends back data to the client, the client displays the data within a table and generates a heatmap visualization layer over [Google Maps](https://developers.google.com/maps/documentation/javascript/overview).
 
-### `yarn start`
+## Project Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Install the dependencies.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```shell
+$ npm install
+```
 
-### `yarn test`
+Create a `.env` file in the root of the project directory. Add the `REACT_APP_GOOGLE_MAPS_API_KEY` environment variable to this file, and set it to an [API key](https://developers.google.com/maps/documentation/javascript/get-api-key).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+(`.env`)
 
-### `yarn build`
+```
+REACT_APP_GOOGLE_MAPS_API_KEY=xxxxxxx-xxxxxxxxxxxxxxxxxxxxxx_xxxxxxxx
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For the backend, clone the repository of the multi-container Docker application [`nyc-squirrel-census-api`](https://github.com/newline-sandbox/nyc-squirrel-census-api) and follow the directions in the `README.md` file to run it locally alongside this demo.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Running in Development Environment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run the application for local development:
 
-### `yarn eject`
+```bash
+$ npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Navigate to [localhost:3000](http://localhost:3000/). You should see your application running.
